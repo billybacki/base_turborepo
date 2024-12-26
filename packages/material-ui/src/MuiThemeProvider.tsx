@@ -4,7 +4,7 @@ import CssBaseline from '@mui/material/CssBaseline'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter'
 import { DialogProvider, NotificationProvider, TransactionModal } from '.'
 
-type MuiThemeProviderProps = {
+export type MuiThemeProviderProps = {
   children: React.ReactNode
   isAppRouter?: boolean
   theme?: Partial<Theme> | ((outerTheme: Theme) => Theme)

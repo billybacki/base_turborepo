@@ -27,6 +27,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "@rainbow-me/rainbowkit": "^2.2.0",
     "@repo/currency": "workspace:*",
     "@repo/material-ui": "workspace:*",
     "@tanstack/react-query": "^5.40.1",

@@ -43,9 +43,18 @@ const wagmiSSRConfig = createConfig({
   }
 })
 
-export function RainbowkitConnection({ children, isSSR = false }: { children: React.ReactNode; isSSR?: boolean }) {
+export function RainbowkitConnection({
+  children,
+  isSSR = false,
+  env
+}: {
+  children: React.ReactNode
+  isSSR?: boolean
+  env: 'prod' | 'testnet' | 'dev'
+}) {
   return (
     <EvmWagmiProvider
+      env={env}
       wagmiConfig={isSSR ? wagmiSSRConfig : wagmiConfig}
       supportedChainIds={chains.map(chain => chain.id)}
     >
