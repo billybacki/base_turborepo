@@ -1,5 +1,5 @@
 'use client'
-import { useEvmWallet, useRainbowkitModal } from '@repo/evm-wallet'
+import { useEvmWallet, useRainbowkitModal } from '@repo/wallet'
 
 export function WalletConnectButton() {
   const { useConnectModal } = useRainbowkitModal()

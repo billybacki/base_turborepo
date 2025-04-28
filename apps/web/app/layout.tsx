@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
-import { RainbowkitConnection } from '@repo/evm-wallet'
+import { RainbowkitConnection } from '@repo/wallet'
 import { MuiThemeProvider } from '@repo/material-ui'
 
 const geistSans = localFont({
