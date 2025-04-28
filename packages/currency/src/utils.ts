@@ -2,6 +2,7 @@ import invariant from 'tiny-invariant'
 import BigNumber from 'bignumber.js'
 import { Address, getAddress, parseUnits } from 'viem'
 import { normalizeSuiAddress } from '@mysten/sui/utils'
+import { PublicKey } from '@solana/web3.js'
 
 export function validateAndParseEVMAddress(address: string): Address {
   try {
@@ -38,4 +39,17 @@ export function formatCoinAddress(coinAddress: string) {
 
 export const isSuiAddress = (address: string) => {
   return address.endsWith('2::sui::SUI')
+}
+
+export function validateAndParseSolanaAddress(address: string | PublicKey): PublicKey {
+  try {
+    if (address instanceof PublicKey) {
+      return address
+    }
+
+    const pubkey = new PublicKey(address)
+    return pubkey
+  } catch {
+    invariant(false, `${address} is not a valid address.`)
+  }
 }

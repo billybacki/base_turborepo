@@ -2,7 +2,8 @@ import BigNumber from 'bignumber.js'
 import invariant from 'tiny-invariant'
 import { Currency } from './currency'
 import { parseAmount } from './utils'
-import { TonCurrency } from './TonCurrency'
+import { SuiCurrency } from './SuiCurrency'
+import { SolanaCurrency } from './solanaCurrency'
 
 BigNumber.config({
   DECIMAL_PLACES: 18,
@@ -12,7 +13,7 @@ BigNumber.config({
   POW_PRECISION: 100
 })
 
-export class CurrencyAmount<T extends Currency | TonCurrency> {
+export class CurrencyAmount<T extends Currency | SolanaCurrency | SuiCurrency> {
   public readonly currency: T
   private readonly value: BigNumber
 
@@ -139,7 +140,7 @@ export class CurrencyAmount<T extends Currency | TonCurrency> {
    * @param amount The raw amount
    * @returns A new CurrencyAmount instance
    */
-  public static fromRawAmount<T extends Currency | TonCurrency>(
+  public static fromRawAmount<T extends Currency | SuiCurrency | SolanaCurrency>(
     currency: T,
     amount: string | number | bigint
   ): CurrencyAmount<T> {
@@ -152,7 +153,7 @@ export class CurrencyAmount<T extends Currency | TonCurrency> {
    * @param amount The human readable amount
    * @returns A new CurrencyAmount instance or undefined if parsing fails
    */
-  public static fromAmount<T extends Currency | TonCurrency>(
+  public static fromAmount<T extends Currency | SuiCurrency | SolanaCurrency>(
     currency: T,
     amount: string | number
   ): CurrencyAmount<T> | undefined {

@@ -4,14 +4,13 @@ import { formatCoinAddress } from './utils'
 
 export const ZERO_ADDRESS = '0x2::sui::SUI'
 
-export const _SUI_COIN_OBJECT_ID: { [key: string]: string } = {
+export const _SUI_COIN_OBJECT_ID: { [key in 'devnet' | 'testnet' | 'mainnet']: string } = {
   devnet: '0x0ca637f36954987daafba2e1866a51496df770383f72693658feb1f2438898e7',
   testnet: '0x587c29de216efd4219573e08a1f6964d4fa7cb714518c2c8a0f29abfa264327d',
   mainnet: '0x9258181f5ceac8dbffb7030890243caed69a9599d2886d957a9cb7656af3bdb3'
 }
-export const SUI_COIN_OBJECT_ID = _SUI_COIN_OBJECT_ID[process.env.NEXT_PUBLIC_ENVIRONMENT || 'mainnet']
 
-export class Currency {
+export class SuiCurrency {
   public readonly address: string
   public readonly decimals: number
   public readonly symbol?: string
@@ -47,23 +46,23 @@ export class Currency {
     this.description = description
   }
 
-  public static getNativeCurrency(decimals?: number) {
-    return new Currency(
+  public static getNativeCurrency(environment?: 'devnet' | 'testnet' | 'mainnet') {
+    return new SuiCurrency(
       ZERO_ADDRESS,
-      SUI_COIN_OBJECT_ID || '',
-      decimals ? decimals : 9,
+      _SUI_COIN_OBJECT_ID[environment || 'mainnet'],
+      9,
       'Sui',
       'Sui',
       'https://s2.coinmarketcap.com/static/img/coins/64x64/20947.png'
     )
   }
 
-  public equals(other: Currency): boolean {
+  public equals(other: any): boolean {
     // short circuit on reference equality
     if (this === other) {
       return true
     }
-    return this.address === other.address
+    return other instanceof SuiCurrency && this.address === other.address && this.id === other.id
   }
 
   public get isNative() {

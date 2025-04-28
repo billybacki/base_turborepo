@@ -25,7 +25,7 @@ export class Currency {
 
   public equals(other: any): boolean {
     if (this === other) return true
-    return other instanceof Currency && this.chainId === other.chainId && this.address === other.address
+    return other instanceof Currency && this.address === other.address
   }
 
   public static getNativeCurrency(chainId?: number, decimals?: number, symbol?: string, name?: string, logo?: string) {
