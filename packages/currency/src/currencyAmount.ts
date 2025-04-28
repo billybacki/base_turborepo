@@ -13,7 +13,9 @@ BigNumber.config({
   POW_PRECISION: 100
 })
 
-export class CurrencyAmount<T extends Currency | SolanaCurrency | SuiCurrency> {
+type CurrencyAmountType = Currency | SolanaCurrency | SuiCurrency
+
+export class CurrencyAmount<T extends CurrencyAmountType> {
   public readonly currency: T
   private readonly value: BigNumber
 
@@ -140,7 +142,7 @@ export class CurrencyAmount<T extends Currency | SolanaCurrency | SuiCurrency> {
    * @param amount The raw amount
    * @returns A new CurrencyAmount instance
    */
-  public static fromRawAmount<T extends Currency | SuiCurrency | SolanaCurrency>(
+  public static fromRawAmount<T extends CurrencyAmountType>(
     currency: T,
     amount: string | number | bigint
   ): CurrencyAmount<T> {
@@ -153,7 +155,7 @@ export class CurrencyAmount<T extends Currency | SolanaCurrency | SuiCurrency> {
    * @param amount The human readable amount
    * @returns A new CurrencyAmount instance or undefined if parsing fails
    */
-  public static fromAmount<T extends Currency | SuiCurrency | SolanaCurrency>(
+  public static fromAmount<T extends CurrencyAmountType>(
     currency: T,
     amount: string | number
   ): CurrencyAmount<T> | undefined {
