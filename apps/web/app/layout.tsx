@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
-import { RainbowkitConnection } from '@repo/wallet'
 import { MuiThemeProvider } from '@repo/material-ui'
 
 const geistSans = localFont({
@@ -26,9 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <MuiThemeProvider isAppRouter={true}>
-          <RainbowkitConnection isSSR={true}>{children}</RainbowkitConnection>
-        </MuiThemeProvider>
+        <MuiThemeProvider isAppRouter={true}>{children}</MuiThemeProvider>
       </body>
     </html>
   )

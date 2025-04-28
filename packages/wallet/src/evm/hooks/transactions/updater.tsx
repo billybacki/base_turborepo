@@ -6,8 +6,8 @@ import { TransactionDetails } from './types'
 import { useGetTransactionReceiptCallback } from '../contract/useAsyncContractCallback'
 import { useEvmWallet } from '../useWallet'
 import { TransactionResult, useNotification } from '@repo/material-ui'
-import { useEvmWalletContext } from '../../EvmWalletContent'
-import { getExplorerLink } from '../../utils/getExplorerLink'
+import { useEvmWalletContext } from '../../../EvmWagmiProvider'
+import { getExplorerLink } from '../../../utils/getExplorerLink'
 
 export function shouldCheck(lastBlockNumber: number, tx: TransactionDetails): boolean {
   if (tx.receipt) return false
@@ -62,7 +62,7 @@ export default function Updater(): null {
                 success(
                   <TransactionResult
                     title={_tx?.summary || 'Result'}
-                    link={getExplorerLink(_tx.chainId, hash, 'transaction')}
+                    link={getExplorerLink({ chainId: _tx.chainId, type: 'evm' }, hash, 'transaction')}
                   />,
                   {
                     autoHideDuration: 10_000
@@ -72,7 +72,7 @@ export default function Updater(): null {
                 error(
                   <TransactionResult
                     title={_tx?.summary || 'Result'}
-                    link={getExplorerLink(_tx.chainId, hash, 'transaction')}
+                    link={getExplorerLink({ chainId: _tx.chainId, type: 'evm' }, hash, 'transaction')}
                   />,
                   {
                     autoHideDuration: 15_000

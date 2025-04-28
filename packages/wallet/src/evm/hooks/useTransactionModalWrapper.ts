@@ -1,7 +1,7 @@
 import { useTransactionModal } from '@repo/material-ui'
 import { useWaitForTransactionReceiptCallback } from './contract/useAsyncContractCallback'
 import { TransactionReceipt } from 'viem'
-import { getExplorerLink } from '../utils/getExplorerLink'
+import { getExplorerLink } from '../../utils/getExplorerLink'
 import { useEvmWallet } from './useWallet'
 
 export function useTransactionModalWrapper<T extends any[]>(
@@ -37,7 +37,7 @@ export function useTransactionModalWrapper<T extends any[]>(
           title: 'Waiting for Transaction Settlement',
           subTitle: 'Please wait for the transaction to be settled on-chain.',
           status: 'pending',
-          link: getExplorerLink(chainId, hash, 'transaction'),
+          link: getExplorerLink({ chainId, type: 'evm' }, hash, 'transaction'),
           onClose: () => reject('user cancel')
         })
 
@@ -60,7 +60,7 @@ export function useTransactionModalWrapper<T extends any[]>(
         open({
           status: 'success',
           title: option?.successTipsTitle || 'Congratulations!',
-          link: getExplorerLink(chainId, hash, 'transaction'),
+          link: getExplorerLink({ chainId, type: 'evm' }, hash, 'transaction'),
           subTitle: option?.successTipsText || `The transaction has been successfully confirmed`,
           onClose: option?.modalSuccessCancel && (() => option?.modalSuccessCancel?.(hash)),
           onSuccessClose: option?.modalSuccessClose

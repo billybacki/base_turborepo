@@ -2,7 +2,7 @@
   "name": "base-turborepo",
   "private": false,
   "scripts": {
-    "build": "turbo build",
+    "build": "turbo build --filter=!@repo/sui-wallet",
     "dev": "turbo dev --filter=!@repo/sui-wallet",
     "lint": "turbo lint",
     "test": "pnpm turbo run test --filter=[HEAD^1]",

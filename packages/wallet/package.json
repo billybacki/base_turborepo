@@ -27,7 +27,6 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "@rainbow-me/rainbowkit": "^2.2.0",
     "@repo/currency": "workspace:*",
     "@repo/material-ui": "workspace:*",
     "@tanstack/react-query": "^5.40.1",
@@ -39,7 +38,6 @@
     "zustand": "^5.0.1"
   },
   "peerDependencies": {
-    "@rainbow-me/rainbowkit": "^2.2.0",
     "@tanstack/react-query": "^5.40.1",
     "@wagmi/core": "2.10.5",
     "react": "18.3.1",
