@@ -1,5 +1,6 @@
 import { CustomContentProps, useSnackbar } from 'notistack'
-import { Alert, Box } from '@mui/material'
+import Alert from '@mui/material/Alert'
+import Box from '@mui/material/Box'
 import IconButton from '@mui/material/IconButton'
 import CloseIcon from '@mui/icons-material/Close'
 import React from 'react'

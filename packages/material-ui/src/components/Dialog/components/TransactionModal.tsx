@@ -1,7 +1,12 @@
 'use client'
 
-import { useTheme, Box, Typography, Button, Stack, Link } from '@mui/material'
+import { useTheme } from '@mui/material'
+import Typography from '@mui/material/Typography'
 import Spinner from '../../Spinner'
+import Link from '@mui/material/Link'
+import Stack from '@mui/material/Stack'
+import Button from '@mui/material/Button'
+import Box from '@mui/material/Box'
 import { useDialogState } from '../DialogProvider'
 import { BaseDialog } from './baseDialog'
 import { useCallback, useMemo } from 'react'

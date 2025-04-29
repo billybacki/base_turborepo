@@ -1,19 +1,16 @@
 'use client'
 import React from 'react'
-import {
-  Dialog as MuiDialog,
-  DialogContent,
-  Typography,
-  DialogTitle,
-  DialogProps as MuiDialogProps,
-  styled,
-  IconButton,
-  SxProps,
-  Theme,
-  useTheme,
-  useMediaQuery,
-  DialogActions
-} from '@mui/material'
+import MuiDialog from '@mui/material/Dialog'
+import DialogContent from '@mui/material/DialogContent'
+import Typography from '@mui/material/Typography'
+import DialogTitle from '@mui/material/DialogTitle'
+import { styled } from '@mui/material/styles'
+import IconButton from '@mui/material/IconButton'
+import { SxProps, Theme } from '@mui/material/styles'
+import { useTheme } from '@mui/material/styles'
+import useMediaQuery from '@mui/material/useMediaQuery'
+import DialogActions from '@mui/material/DialogActions'
+import type { DialogProps as MuiDialogProps } from '@mui/material/Dialog'
 import HighlightOffIcon from '@mui/icons-material/HighlightOff'
 
 const BaseMuiDialog = styled(MuiDialog)(() => ({

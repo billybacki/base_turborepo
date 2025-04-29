@@ -3,7 +3,9 @@ import { SnackbarProvider, useSnackbar, VariantType } from 'notistack'
 import { createContext, useCallback, useContext } from 'react'
 import React from 'react'
 import { SnackbarContent } from './SnackbarContent'
-import { Link, Stack, Typography } from '@mui/material'
+import Link from '@mui/material/Link'
+import Stack from '@mui/material/Stack'
+import Typography from '@mui/material/Typography'
 
 type NotificationOptions = {
   variant?: VariantType
