@@ -3,20 +3,22 @@
 import { createAppKit } from '@reown/appkit/react'
 import { BaseWalletAdapter, SolanaAdapter } from '@reown/appkit-adapter-solana/react'
 import { PhantomWalletAdapter, SolflareWalletAdapter } from '@solana/wallet-adapter-wallets'
-import { AppKitNetwork, base, bsc, mainnet, solana } from '@reown/appkit/networks'
+import { AppKitNetwork, base, bsc, mainnet, sepolia, solana } from '@reown/appkit/networks'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { cookieStorage, createStorage, http, WagmiProvider, type Config } from 'wagmi'
 import { WagmiAdapter } from '@reown/appkit-adapter-wagmi'
+import { EvmWagmiProvider } from '@repo/wallet'
 
 const projectId = 'd5c60d9c3c07bc864e9f891660630ecb'
 
 const transports = {
   [mainnet.id]: http(),
   [bsc.id]: http(),
-  [base.id]: http()
+  [base.id]: http(),
+  [sepolia.id]: http()
 }
 
-const networks = [mainnet, bsc, base, solana]
+const networks = [mainnet, bsc, base, sepolia, solana]
 
 const wagmiAdapter = new WagmiAdapter({
   storage: createStorage({
@@ -67,7 +69,20 @@ const queryClient = new QueryClient()
 export function Web3Provider({ children }: { children: React.ReactNode }) {
   return (
     <WagmiProvider config={wagmiAdapter.wagmiConfig as Config} initialState={undefined}>
-      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+      <QueryClientProvider client={queryClient}>
+        <EvmWagmiProvider wagmiConfig={wagmiAdapter.wagmiConfig as any} theme={'dark'}>
+          {children}
+        </EvmWagmiProvider>
+      </QueryClientProvider>
     </WagmiProvider>
   )
 }
+
+// function Config({ children }: { children: React.ReactNode }) {
+//   const config = useConfig()
+//   return (
+//     <EvmWagmiProvider wagmiConfig={config as any} theme={'dark'}>
+//       {children}
+//     </EvmWagmiProvider>
+//   )
+// }

@@ -1,2 +1,2 @@
-export * from './MuiThemeProvider'
+export * from './UiThemeProvider'
 export * from './components'

@@ -1,22 +1,22 @@
 import { ThemeProvider } from '@mui/material'
-import { defaultTheme } from './theme'
+import { darkTheme, lightTheme } from './MuiTheme'
 import CssBaseline from '@mui/material/CssBaseline'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter'
 import { DialogProvider, NotificationProvider, TransactionModal } from '.'
 
-export type MuiThemeProviderProps = {
+export type UiThemeProviderProps = {
   children: React.ReactNode
   isAppRouter?: boolean
   disableCssBaseline?: boolean
-  standalone?: boolean
+  theme?: 'light' | 'dark'
 }
 
-export function MuiThemeProvider({
+export function UiThemeProvider({
   children,
   isAppRouter = false,
-  disableCssBaseline = false,
-  standalone = true
-}: MuiThemeProviderProps) {
+  disableCssBaseline = true,
+  theme = 'light'
+}: UiThemeProviderProps) {
   const content = (
     <>
       {!disableCssBaseline && <CssBaseline />}
@@ -27,17 +27,13 @@ export function MuiThemeProvider({
     </>
   )
 
-  if (!standalone) {
-    return content
-  }
-
   if (isAppRouter) {
     return (
       <AppRouterCacheProvider>
-        <ThemeProvider theme={defaultTheme}>{content}</ThemeProvider>
+        <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>{content}</ThemeProvider>
       </AppRouterCacheProvider>
     )
   }
 
-  return <ThemeProvider theme={defaultTheme}>{content}</ThemeProvider>
+  return <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>{content}</ThemeProvider>
 }

@@ -2,7 +2,7 @@ import { useStore } from 'zustand'
 import { createTxStore } from './store'
 import { TransactionDetails } from './types'
 import { useCallback, useMemo } from 'react'
-import { useEvmWallet } from '..'
+import { useEvmWallet } from '../useWallet'
 
 export function useAddRecentTransaction() {
   const addTransaction = useStore(createTxStore).addTransaction
