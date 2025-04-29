@@ -65,7 +65,7 @@ createAppKit({
 
 const queryClient = new QueryClient()
 
-export function Web3Provider({ children }: { children: JSX.Element }) {
+export function Web3Provider({ children }: { children: React.ReactNode }) {
   return (
     <WagmiProvider config={wagmiAdapter.wagmiConfig as Config} initialState={undefined}>
       <QueryClientProvider client={queryClient}>
