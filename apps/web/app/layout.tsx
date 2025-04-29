@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
-import { MuiThemeProvider } from '@repo/material-ui'
+import { MuiThemeProvider } from '@repo/ui-components'
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',

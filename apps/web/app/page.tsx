@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import styles from './page.module.css'
 import { WalletConnectButton } from './components/WalletConnectButton'
-import { useNotification } from '@repo/material-ui'
+import { useNotification } from '@repo/ui-components'
 import { useApproveCallback, useToken } from '@repo/wallet'
 import { CurrencyAmount } from '@repo/currency'
 

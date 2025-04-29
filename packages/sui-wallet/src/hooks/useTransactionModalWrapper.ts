@@ -1,4 +1,4 @@
-import { useTransactionModal } from '@repo/material-ui'
+import { useTransactionModal } from '@repo/ui-components'
 import { getExplorerLink, NetworkEnvironmentType } from '../utils/getExplorerLink'
 import { useSuiClientMutation } from '@mysten/dapp-kit'
 
