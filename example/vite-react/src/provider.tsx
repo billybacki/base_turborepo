@@ -25,7 +25,6 @@ const wagmiAdapter = new WagmiAdapter({
     storage: cookieStorage
   }),
   transports,
-  ssr: true,
   projectId,
   networks: networks as unknown as [AppKitNetwork, ...AppKitNetwork[]]
 })

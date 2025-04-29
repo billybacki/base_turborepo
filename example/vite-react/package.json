@@ -10,8 +10,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@repo/wallet": "workspace:*",
+    "@repo/currency": "workspace:*",
+    "@reown/appkit": "^1.7.3",
+    "@reown/appkit-adapter-solana": "^1.7.3",
+    "@reown/appkit-adapter-wagmi": "^1.7.3",
+    "@solana/wallet-adapter-wallets": "^0.19.36",
+    "@tanstack/react-query": "^5.74.8",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "viem": "^2.28.1",
+    "wagmi": "2.14.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",

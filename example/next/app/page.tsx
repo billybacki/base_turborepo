@@ -1,44 +1,10 @@
-'use client'
-import Image from 'next/image'
-import { useAppKit, useAppKitAccount } from '@reown/appkit/react'
-import { useApproveCallback, useToken } from '@repo/wallet'
-import { CurrencyAmount } from '@repo/currency'
+import Test from './test'
 
 export default function Home() {
-  const { open } = useAppKit()
-  const { address } = useAppKitAccount()
-
-  const { token } = useToken('0x85eDB7A0cbAcf5BD641e0FF5D6270bEf9C72Bd6B', 11155111)
-
-  const { approveWithModal } = useApproveCallback(
-    token ? new CurrencyAmount(token, 3) : undefined,
-    '0x1F072FD6DeE1ABD06CD97eBbADB0E0c4027E252d',
-    true
-  )
-
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        {!address ? (
-          <button onClick={() => open()}>Connect</button>
-        ) : (
-          <div>
-            <p>{address}</p>
-            <div className="flex justify-center">
-              <button className="p-2 bg-primary text-white rounded-md" onClick={() => approveWithModal()}>
-                Approve
-              </button>
-            </div>
-          </div>
-        )}
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
+        <Test />
         <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
           <li className="mb-2">
             Get started by editing{' '}
@@ -54,13 +20,6 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
             Deploy now
           </a>
           <a
@@ -80,7 +39,6 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image aria-hidden src="https://nextjs.org/icons/file.svg" alt="File icon" width={16} height={16} />
           Learn
         </a>
         <a
@@ -89,7 +47,6 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image aria-hidden src="https://nextjs.org/icons/window.svg" alt="Window icon" width={16} height={16} />
           Examples
         </a>
         <a
@@ -98,7 +55,6 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image aria-hidden src="https://nextjs.org/icons/globe.svg" alt="Globe icon" width={16} height={16} />
           Go to nextjs.org →
         </a>
       </footer>
