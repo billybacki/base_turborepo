@@ -27,14 +27,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
-    "@mui/material": "^5.14.18",
-    "@mui/material-nextjs": "^5.15.11",
-    "@mui/icons-material": "^5.14.18",
-    "notistack": "^3.0.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "notistack": "^3.0.1"
   },
   "peerDependencies": {
     "@types/eslint": "^8.56.5",

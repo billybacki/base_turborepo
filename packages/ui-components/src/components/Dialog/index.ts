@@ -1,3 +1,4 @@
-export { DialogProvider, useDialogState } from './DialogProvider'
-export { BaseDialog, type BaseDialogProps } from './components/baseDialog'
-export { TransactionModal, useTransactionModal } from './components/TransactionModal'
+export { DialogProvider } from './DialogProvider'
+export { BaseDialog } from './baseDialog'
+export { TransactionModal } from './TransactionModal'
+export type { TransactionModalProps, BaseDialogProps } from './type'

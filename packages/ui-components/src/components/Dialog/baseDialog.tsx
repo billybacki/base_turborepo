@@ -1,17 +1,16 @@
 'use client'
-import React from 'react'
+
 import MuiDialog from '@mui/material/Dialog'
 import DialogContent from '@mui/material/DialogContent'
 import Typography from '@mui/material/Typography'
 import DialogTitle from '@mui/material/DialogTitle'
 import { styled } from '@mui/material/styles'
 import IconButton from '@mui/material/IconButton'
-import { SxProps, Theme } from '@mui/material/styles'
 import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import DialogActions from '@mui/material/DialogActions'
-import type { DialogProps as MuiDialogProps } from '@mui/material/Dialog'
 import HighlightOffIcon from '@mui/icons-material/HighlightOff'
+import { BaseDialogProps } from './type'
 
 const BaseMuiDialog = styled(MuiDialog)(() => ({
   '& .MuiModal-backdrop': {
@@ -27,22 +26,6 @@ const BaseMuiDialog = styled(MuiDialog)(() => ({
     textAlign: 'unset'
   }
 }))
-
-export interface BaseDialogProps extends Omit<MuiDialogProps, 'open'> {
-  open: boolean
-  onClose?: () => void
-  children: React.ReactNode
-  title?: string
-  close?: boolean
-  disableBackClick?: boolean
-  minWidth?: string
-  width?: string
-  hiddenTitle?: boolean
-  closeIcon?: React.ReactNode
-  headerEl?: React.ReactNode
-  sx?: SxProps<Theme>
-  bottomChildren?: React.ReactNode
-}
 
 export const BaseDialog = (props: BaseDialogProps) => {
   const theme = useTheme()

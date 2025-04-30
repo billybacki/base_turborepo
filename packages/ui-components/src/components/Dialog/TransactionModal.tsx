@@ -2,36 +2,16 @@
 
 import { useTheme } from '@mui/material'
 import Typography from '@mui/material/Typography'
-import Spinner from '../../Spinner'
+import Spinner from '../Spinner'
 import Link from '@mui/material/Link'
 import Stack from '@mui/material/Stack'
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
-import { useDialogState } from '../DialogProvider'
 import { BaseDialog } from './baseDialog'
 import { useCallback, useMemo } from 'react'
 import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded'
 import ErrorRoundedIcon from '@mui/icons-material/ErrorRounded'
-
-type TransactionModalProps = {
-  title: string
-  subTitle?: string
-  link?: string
-  status: 'pending' | 'success' | 'error'
-  retryFunc?: () => void
-  onClose?: () => void
-  onSuccessClose?: () => void
-}
-
-export function useTransactionModal() {
-  const { open, close, isOpen, propsObject } = useDialogState<TransactionModalProps>('transactionModal')
-  return {
-    open,
-    close,
-    propsObject,
-    isOpen
-  }
-}
+import { useTransactionModal } from '../../hooks/useDialog'
 
 export function TransactionModal() {
   const theme = useTheme()

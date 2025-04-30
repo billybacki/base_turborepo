@@ -3,7 +3,7 @@ import { ResolvedRegister, WagmiProvider } from 'wagmi'
 import React, { createContext, useContext } from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import Updater from './evm/hooks/transactions/updater'
-import { UiThemeProvider } from '@repo/ui-components'
+import { RootProvider } from '@repo/ui-components'
 
 interface EvmWalletContextType {
   showTransactionNotification: boolean
@@ -27,12 +27,12 @@ export function EvmWagmiProvider({
   wagmiConfig,
   showTransactionNotification,
   children,
-  theme
+  mode
 }: {
   wagmiConfig: ResolvedRegister['config']
   children: React.ReactNode
   showTransactionNotification?: boolean
-  theme?: 'light' | 'dark'
+  mode?: 'light' | 'dark'
 }) {
   return (
     <WagmiProvider config={wagmiConfig}>
@@ -42,10 +42,10 @@ export function EvmWagmiProvider({
             showTransactionNotification: showTransactionNotification ?? true
           }}
         >
-          <UiThemeProvider theme={theme}>
+          <RootProvider mode={mode}>
             <Updater />
             {children}
-          </UiThemeProvider>
+          </RootProvider>
         </EvmWalletContext.Provider>
       </QueryClientProvider>
     </WagmiProvider>

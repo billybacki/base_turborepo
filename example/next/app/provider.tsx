@@ -70,7 +70,7 @@ export function Web3Provider({ children }: { children: React.ReactNode }) {
   return (
     <WagmiProvider config={wagmiAdapter.wagmiConfig as Config} initialState={undefined}>
       <QueryClientProvider client={queryClient}>
-        <EvmWagmiProvider wagmiConfig={wagmiAdapter.wagmiConfig as any} theme={'dark'}>
+        <EvmWagmiProvider wagmiConfig={wagmiAdapter.wagmiConfig as any} mode={'dark'}>
           {children}
         </EvmWagmiProvider>
       </QueryClientProvider>
