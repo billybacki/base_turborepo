@@ -1,4 +1,4 @@
-import { useTransactionModal } from '@repo/ui-components'
+import { useTransactionModal } from '@repo/ui-kit'
 import { useWaitForTransactionReceiptCallback } from './contract/useAsyncContractCallback'
 import { TransactionReceipt } from 'viem'
 import { getExplorerLink } from '../../utils/getExplorerLink'

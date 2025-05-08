@@ -5,7 +5,7 @@ import { useAllTransactionsByChainId, useUpdateRecentTransaction } from './hooks
 import { TransactionDetails } from './types'
 import { useGetTransactionReceiptCallback } from '../contract/useAsyncContractCallback'
 import { useEvmWallet } from '../useWallet'
-import { TransactionResult, useNotification } from '@repo/ui-components'
+import { TransactionResult, useNotification } from '@repo/ui-kit'
 import { useEvmWalletContext } from '../../../EvmWagmiProvider'
 import { getExplorerLink } from '../../../utils/getExplorerLink'
 

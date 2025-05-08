@@ -3,7 +3,7 @@ import { ResolvedRegister, WagmiProvider } from 'wagmi'
 import React, { createContext, useContext } from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import Updater from './evm/hooks/transactions/updater'
-import { RootProvider } from '@repo/ui-components'
+import { RootProvider } from '@repo/ui-kit'
 
 interface EvmWalletContextType {
   showTransactionNotification: boolean
