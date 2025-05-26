@@ -11,9 +11,9 @@
   "dependencies": {
     "@repo/wallet": "workspace:*",
     "@repo/currency": "workspace:*",
-    "@reown/appkit": "^1.7.3",
-    "@reown/appkit-adapter-solana": "^1.7.3",
-    "@reown/appkit-adapter-wagmi": "^1.7.3",
+    "@reown/appkit": "^1.7.6",
+    "@reown/appkit-adapter-solana": "^1.7.6",
+    "@reown/appkit-adapter-wagmi": "^1.7.6",
     "@solana/wallet-adapter-wallets": "^0.19.36",
     "@tanstack/react-query": "^5.74.7",
     "next": "14.2.28",
