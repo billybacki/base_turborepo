@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* 基础变量（可选，MUI 会自动生成主色调变量） */
+    --background: #ffffff;
+    --foreground: #171717;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: #0f172a;
+      --foreground: #f1f5f9;
+    }
+  }
+
+  * {
+    border-color: rgb(var(--mui-palette-grey-300) / 0.5);
+  }
+
+  body {
+    color: var(--foreground);
+    background: var(--background);
+    font-family:
+      Inter,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      Roboto,
+      'Helvetica Neue',
+      Arial,
+      sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
+}
+
+@layer components {
+  /* 自定义组件样式（使用 MUI 的颜色变量） */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary text-white hover:bg-primary-600 active:bg-primary-700 shadow-md hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply btn bg-secondary text-white hover:bg-secondary-600 active:bg-secondary-700 shadow-md hover:shadow-lg;
+  }
+
+  .btn-outline {
+    @apply btn border border-primary text-primary hover:bg-primary-50 active:bg-primary-100;
+  }
+
+  .btn-ghost {
+    @apply btn text-primary hover:bg-primary-50 active:bg-primary-100;
+  }
+
+  /* 暗色模式下的按钮样式 */
+  .dark .btn-outline {
+    @apply hover:bg-primary-800 active:bg-primary-700;
+  }
+
+  .dark .btn-ghost {
+    @apply hover:bg-primary-800 active:bg-primary-700;
+  }
+
+  .card {
+    @apply rounded-xl border border-gray-200 bg-white p-6 shadow-md hover:shadow-lg transition-all duration-200;
+  }
+
+  .dark .card {
+    @apply border-slate-700 bg-slate-800 shadow-slate-900/10;
+  }
+
+  .input {
+    @apply flex h-10 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200;
+  }
+
+  .dark .input {
+    @apply border-slate-600 bg-slate-800 ring-offset-slate-900 placeholder:text-slate-400;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* 自定义工具类（使用 MUI 的颜色变量） */
+  .bg-gradient-primary {
+    @apply bg-gradient-to-r from-primary to-primary-600;
+  }
+
+  .bg-gradient-success {
+    @apply bg-gradient-to-r from-success to-success-600;
+  }
+
+  .text-gradient-primary {
+    @apply bg-gradient-to-r from-primary to-primary-600 bg-clip-text text-transparent;
+  }
+
+  /* 暗色模式优化 */
+  .dark .btn-primary {
+    @apply shadow-slate-900/20 hover:shadow-slate-900/30;
+  }
+
+  .dark .btn-secondary {
+    @apply shadow-slate-900/20 hover:shadow-slate-900/30;
+  }
+}
